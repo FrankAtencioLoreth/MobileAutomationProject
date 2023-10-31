@@ -1,8 +1,9 @@
 # MobileAutomationProject
 Proyecto de automatización para pruebas moviles
 
-Stack:
-
+Stack: <br><br>
+Screenplay Pattern  <br>
+Java <br>
 SerenityBDD <br>
 Cucumber <br>
 Selenium <br>
