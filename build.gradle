@@ -39,7 +39,6 @@ test {
     useJUnit()
     testLogging.showStandardStreams = true
     systemProperties System.getProperties()
-    System.getProperty("user.dir") // fetches the directory or path of the workspace for the current project
 }
 
 serenity {
