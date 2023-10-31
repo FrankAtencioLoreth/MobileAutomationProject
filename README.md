@@ -3,9 +3,9 @@ Proyecto de automatización para pruebas moviles
 
 Stack:
 
-SerenityBDD
-Cucumber
-Selenium
-Appium
-Apppium Inspector
+SerenityBDD <br>
+Cucumber <br>
+Selenium <br>
+Appium <br>
+Apppium Inspector <br>
 Android Studio
