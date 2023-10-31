@@ -1,0 +1,55 @@
+plugins {
+    id "java"
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.3.10"
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '3.3.10'
+    serenityCucumberVersion = '3.3.10'
+    junitVersion = '4.13.1'
+    assertJVersion = '3.23.1'
+    logbackVersion = '1.2.10'
+}
+
+dependencies {
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+
+    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "junit:junit:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "io.appium:java-client:7.3.0"
+}
+
+test {
+    useJUnit()
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+    System.getProperty("user.dir") // fetches the directory or path of the workspace for the current project
+}
+
+serenity {
+    // Specify the root package of any JUnit acceptance tests to appear in the Serenity report
+    testRoot = "starter"
+    // Specify the root directory of any Cucumber feature files
+    requirementsDir = "src/test/resources/features"
+
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
